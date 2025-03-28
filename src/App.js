@@ -1,24 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import ExpennseOverview from "./components/ExpennseOverview";
+import ShowTransactions from "./components/ShowTransactions";
+import PreviousMonthData from "./components/PreviousMonthData";
+import ChartAnalysis from "./components/ChartAnalysis";
+import SavingsComparison from "./components/SavingsComparison";
+import Confetti from "react-confetti";  // Import Confetti at the top
+import Modal from "@mui/material/Modal";
+import { Box, Card, Typography } from "@mui/material";
+import { TransactionProvider } from "./components/TransactionContext";
+import { useState, useEffect } from "react";
+
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <TransactionProvider>
+    
+      <Box
+        sx={{
+          minHeight: "100vh",
+          background: "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: 5,
+        }}
+      >
+          <Box>
+              <SavingsComparison />
+          </Box>
+        
+            
+
+        <Typography
+          variant="h3"
+          fontWeight="bold"
+          color="white"
+          sx={{ mb: 3, textAlign: "center" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Expense Tracker
+        </Typography>
+
+        {/* Main Content with Cards */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            gap: 2,
+            textAlign: "center",
+            mt: 4,
+          }}
+        >
+          <Box sx={{ width: 700 }}>
+            <Card sx={{ p: 2 }}>
+              <ExpennseOverview />
+              <ShowTransactions />
+            </Card>
+          </Box>
+
+          <Box sx={{ width: 400 }}>
+            <Card sx={{ p: 2 }}>
+              <PreviousMonthData />
+            </Card>
+            <Card sx={{ p: 2, mt: 2 }}>
+              <ChartAnalysis />
+            </Card>
+          </Box>
+        </Box>
+      </Box>
+    </TransactionProvider>
   );
 }
 
