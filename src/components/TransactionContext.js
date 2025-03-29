@@ -16,11 +16,12 @@ export const TransactionProvider = ({ children }) => {
     isHigher: false,
     message: "",
   });
+  const BASE_URL = 'https://expense-tracker-backend-3-bcjv.onrender.com'
 
   //  Fetch data once when app starts
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/expenses/all");
+      const response = await axios.get(`${BASE_URL}/api/expenses/all`);
       setTransactions(response.data);
       console.log("fetched data",response.data)
     } catch (error) {
@@ -30,7 +31,7 @@ export const TransactionProvider = ({ children }) => {
 
   const fetchCurrentMonthExpenses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/expenses/getCurrentMonthData");
+      const response = await axios.get(`${BASE_URL}/api/expenses/getCurrentMonthData`);
       setCurrentMonthTransactions(response.data);
       console.log("fetched data",response.data)
     } catch (error) {
@@ -51,7 +52,7 @@ export const TransactionProvider = ({ children }) => {
   //  Add transaction
   const addTransaction = async (item, amount,date) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/expenses/add", { item, amount,date });
+      const response = await axios.post(`${BASE_URL}/api/expenses/add`, { item, amount,date });
       setTransactions([...transactions, response.data.expense]); // Update state instantly
     } catch (error) {
       console.error("Error adding transaction:", error);
@@ -62,7 +63,7 @@ export const TransactionProvider = ({ children }) => {
   //  get Previous Month Transactions
   const getPrevMonthTransaction = async (month, year) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/expenses/PrevDateMonth", { month, year });
+      const response = await axios.post(`${BASE_URL}/api/expenses/PrevDateMonth`, { month, year });
   
       if (response.data.expenses && Array.isArray(response.data.expenses)) {
         setPrevMonthTransactions(response.data.expenses);
@@ -82,7 +83,7 @@ export const TransactionProvider = ({ children }) => {
   //  Delete transaction
   const deleteTransaction = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/expenses/delete/${id}`);
+      await axios.delete(`${BASE_URL}/api/expenses/delete/${id}`);
       setTransactions(transactions.filter((expense) => expense._id !== id)); // Remove from state
     } catch (error) {
       console.error("Error deleting expense:", error);
@@ -92,7 +93,7 @@ export const TransactionProvider = ({ children }) => {
   //  Set Budget 
   const SetBudget = async (newBudget) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/expenses/setbudget", { budget : newBudget});
+      const response = await axios.post(`${BASE_URL}/api/expenses/setbudget`, { budget : newBudget});
     
     if (response.data.monthBudget) {
         setMonthBudget(response.data.monthBudget.budget); // Update state instantly
@@ -106,7 +107,7 @@ export const TransactionProvider = ({ children }) => {
    //  Fetch data once when app starts
    const GetBudget = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/expenses/getbudget");
+      const response = await axios.get(`${BASE_URL}/api/expenses/getbudget`);
       if (response.data.budget) {
         setMonthBudget(response.data.budget); // Ensure it updates correctly
       }
@@ -121,7 +122,7 @@ export const TransactionProvider = ({ children }) => {
 
   const fetchSavingsComparison = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/expenses/compareSavings");
+      const response = await axios.get(`${BASE_URL}/api/expenses/compareSavings`);
       if (response.data) {
         setSavingsComparison(response.data);
         console.log(response.data.isHigher)
