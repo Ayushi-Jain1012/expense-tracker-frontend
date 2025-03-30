@@ -42,6 +42,7 @@ const ExpenseOverview = () => {
     <Box >
         <Typography variant="h5" fontWeight="bold">
             Budget & Expenses
+            Budget & Expenses
         </Typography>
 
         <Grid2 container mt={2} sx={{ display: 'flex', justifyContent: 'space-between', width: "100%" }}>
