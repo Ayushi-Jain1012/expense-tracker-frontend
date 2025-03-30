@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { 
-  Box, Card, CardContent, Typography, Button, TextField, List, ListItem, 
-  ListItemText, IconButton, Grid2 
+  Box, Card, 
 } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
-import AddIcon from "@mui/icons-material/Add";
+
 
 import { useTransactions } from "./TransactionContext";
 

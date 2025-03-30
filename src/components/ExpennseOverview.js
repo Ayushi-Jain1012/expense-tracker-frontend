@@ -1,13 +1,12 @@
 import React, { useState,useEffect } from "react";
 import { 
-  Box, Card, CardContent, Typography, Button, TextField, List, ListItem, 
-  ListItemText, IconButton, Grid2 
+  Box, Card, CardContent, Typography, Button, TextField,  Grid2 
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddTransaction from "./AddTransaction";
 import Modal from '@mui/material/Modal';
-import axios from "axios";
+
 import { useTransactions } from "./TransactionContext";
 
 

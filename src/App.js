@@ -3,11 +3,10 @@ import ShowTransactions from "./components/ShowTransactions";
 import PreviousMonthData from "./components/PreviousMonthData";
 import ChartAnalysis from "./components/ChartAnalysis";
 import SavingsComparison from "./components/SavingsComparison";
-import Confetti from "react-confetti";  // Import Confetti at the top
-import Modal from "@mui/material/Modal";
+
 import { Box, Card, Typography } from "@mui/material";
 import { TransactionProvider } from "./components/TransactionContext";
-import { useState, useEffect } from "react";
+
 
 
 

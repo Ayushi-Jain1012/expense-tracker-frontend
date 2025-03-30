@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { 
-    Box, Card, CardContent, Typography, Button, TextField, List, ListItem, 
-    ListItemText, IconButton, Grid2 
+    Box,  Typography, TextField, List, ListItem, 
+    ListItemText, IconButton 
 } from "@mui/material";
-import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useTransactions } from "./TransactionContext";
 
