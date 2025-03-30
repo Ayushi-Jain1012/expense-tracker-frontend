@@ -4,7 +4,7 @@ import { Box, Typography,Card, Button } from "@mui/material";
 import { useTransactions } from "./TransactionContext";
 import Modal from "@mui/material/Modal";
 
-function SavingsComparison() {
+const SavingsComparison = () => {
     const { savingsComparison } = useTransactions();
     const [showConfetti, setShowConfetti] = useState(false);
     const [open, setOpen] = useState(false);
@@ -84,4 +84,4 @@ function SavingsComparison() {
     );
 }
 
-export default SavingsComparison;
+export default SavingsComparison

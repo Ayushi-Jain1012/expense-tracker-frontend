@@ -1,5 +1,7 @@
+import React from "react";
 import { createContext, useContext, useState, useEffect } from "react";
-const axios = require("axios");
+// const axios = require("axios");
+import axios from 'axios'
 
 const TransactionContext = createContext();
 
