@@ -2,7 +2,7 @@
   "name": "expense_tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ayushi-jain1012/github.io/expense_tracker",
+  "homepage": "https://ayushi-jain1012/github.io/expense-tracker-frontend",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
