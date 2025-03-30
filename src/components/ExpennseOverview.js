@@ -25,6 +25,14 @@ const ExpenseOverview = () => {
     setOpenModal(true)
   }
 
+  const handleBudgetModalClose = () =>{
+    setOpenBudgetModal(false)
+  }
+
+  const handleClose = () =>{
+    setOpenModal(false)
+  }
+
  
   const handleSetBudget = () =>{
     setOpenBudgetModal(true)
@@ -41,7 +49,6 @@ const ExpenseOverview = () => {
   return (
     <Box >
         <Typography variant="h5" fontWeight="bold">
-            Budget & Expenses
             Budget & Expenses
         </Typography>
 
@@ -107,11 +114,11 @@ const ExpenseOverview = () => {
           </Grid2>
         </Grid2>
 
-        <Modal open={openModal} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <Modal open={openModal} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <AddTransaction closeModal={() => setOpenModal(false)} />
         </Modal>
 
-        <Modal open={openBudgetModal} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <Modal open={openBudgetModal} onClose={handleBudgetModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <Box container mt={2} sx={{ width:500, mx: "auto", mt: 2, textAlign: "center" ,left:"50%",top:"50%",  transform: 'translate(-50%, -50%)' ,position:"absolute"}}>
             <Card sx={{p:2, border:"none",boxShadow:2}}>
               <Box container sx={{ width:"100%", display:'flex', justifyContent:'space-around', textAlign:'center',}}>
