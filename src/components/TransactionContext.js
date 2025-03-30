@@ -19,6 +19,7 @@ export const TransactionProvider = ({ children }) => {
     message: "",
   });
   const BASE_URL = 'https://expense-tracker-backend-3-bcjv.onrender.com'
+  // const BASE_URL = 'http://localhost:5000'
 
   //  Fetch data once when app starts
   const fetchExpenses = async () => {
@@ -31,6 +32,10 @@ export const TransactionProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    fetchExpenses(); // Fetch only once
+  }, []);
+
   const fetchCurrentMonthExpenses = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/api/expenses/getCurrentMonthData`);
@@ -41,25 +46,26 @@ export const TransactionProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    fetchExpenses(); // Fetch only once
-  }, []);
+
 
 
   useEffect(() => {
     fetchCurrentMonthExpenses(); // Fetch only once
-  }, []);
+  }, [CurrentMonthTransactions]);
 
 
   //  Add transaction
-  const addTransaction = async (item, amount,date) => {
+  const addTransaction = async (item, amount, date) => {
     try {
-      const response = await axios.post(`${BASE_URL}/api/expenses/add`, { item, amount,date });
-      setTransactions([...transactions, response.data.expense]); // Update state instantly
+      const response = await axios.post(`${BASE_URL}/api/expenses/add`, { item, amount, date });
+  
+      setTransactions((prevTransactions) => [...prevTransactions, response.data.expense]); // Use functional update
+      
     } catch (error) {
       console.error("Error adding transaction:", error);
     }
   };
+  
 
 
   //  get Previous Month Transactions
@@ -87,6 +93,7 @@ export const TransactionProvider = ({ children }) => {
     try {
       await axios.delete(`${BASE_URL}/api/expenses/delete/${id}`);
       setTransactions(transactions.filter((expense) => expense._id !== id)); // Remove from state
+      console.log("item deleted")
     } catch (error) {
       console.error("Error deleting expense:", error);
     }
