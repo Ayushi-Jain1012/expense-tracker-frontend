@@ -30,7 +30,7 @@ export const TransactionProvider = ({ children }) => {
 
    // Set auth token in headers for API requests
    const authHeaders = {
-    headers: { "x-auth-token": token },
+    headers: { "x-auth-token": token,  "Content-Type": "application/json", },
   };
 
   // Register User
