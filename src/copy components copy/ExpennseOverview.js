@@ -60,7 +60,7 @@ const ExpenseOverview = () => {
               Balance: <b>₹{balance}</b>
             </Typography>
           </Grid2>
-          <Grid2  item sx={{ width: {sm:"40%",xs:"50%"}, textAlign: "right", display:{xs:"flex",md:'block'} }}>
+          <Grid2 item xs={6} sx={{ width: "40%", textAlign: "right", }}>
             <Button onClick={handleAdd} variant="contained"  startIcon={<AddIcon />} sx={{
                 mt: 2,
                 background: "#36687d",
@@ -117,12 +117,12 @@ const ExpenseOverview = () => {
           </Grid2>
         </Grid2>
 
-        <Modal open={openModal} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description" >
+        <Modal open={openModal} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <AddTransaction closeModal={() => setOpenModal(false)} />
         </Modal>
 
         <Modal open={openBudgetModal} onClose={handleBudgetModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-          <Box container mt={2} sx={{ width:{xs:"90%",sm:500}, mx: "auto", mt: 2, textAlign: "center" ,left:"50%",top:"50%",  transform: 'translate(-50%, -50%)' ,position:"absolute"}}>
+          <Box container mt={2} sx={{ width:500, mx: "auto", mt: 2, textAlign: "center" ,left:"50%",top:"50%",  transform: 'translate(-50%, -50%)' ,position:"absolute"}}>
             <Card sx={{p:2, border:"none",boxShadow:2}}>
               <Box container sx={{ width:"100%", display:'flex', justifyContent:'space-around', textAlign:'center',}}>
                <TextField onChange={(e) => setBudget(e.target.value)} value={budget} type="number" variant="standard" id="outlined-basic" label="Budget"   sx={{width:"100%", "& fieldset": { border: 'none' }, }}/>

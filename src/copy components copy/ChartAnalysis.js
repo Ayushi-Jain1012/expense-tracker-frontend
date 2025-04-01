@@ -49,10 +49,10 @@ function ChartAnalysis() {
   };
 
   return (
-    <Box sx={{ textAlign: "center", mt: 2 ,alignItems:'center'}}>
+    <Box sx={{ textAlign: "center", mt: 2 }}>
       {/* Card Container */}
-      <Box sx={{  textAlign: "center", alignItems:'center' }}>
-        <Typography variant="h6" fontWeight="bold" sx={{textAlign:'center'}}>
+      <Box sx={{ width: 400, textAlign: "center" }}>
+        <Typography variant="h6" fontWeight="bold">
           {/* 📊 Monthly Expense Analysis */}
           Coming Soon!
         </Typography>

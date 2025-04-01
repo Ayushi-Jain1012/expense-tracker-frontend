@@ -22,8 +22,8 @@ export const TransactionProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [error,setError] = useState(false)
   const [errorMessage,setErrorMessage] = useState("")
-  const BASE_URL = 'https://expense-tracker-backend-3-bcjv.onrender.com'
-  // const BASE_URL = 'http://localhost:5000'
+  // const BASE_URL = 'https://expense-tracker-backend-3-bcjv.onrender.com'
+  const BASE_URL = 'http://localhost:5000'
 
 
 
