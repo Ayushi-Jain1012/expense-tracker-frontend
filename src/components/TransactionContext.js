@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useRef}from "react";
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from 'axios'
 
@@ -24,7 +24,7 @@ export const TransactionProvider = ({ children }) => {
   const [errorMessage,setErrorMessage] = useState("")
   const BASE_URL = 'https://expense-tracker-backend-3-bcjv.onrender.com'
   // const BASE_URL = 'http://localhost:5000'
-
+  const prevTransactionsLengthRef = useRef(transactions.length);
 
 
 
@@ -110,7 +110,7 @@ export const TransactionProvider = ({ children }) => {
 
   useEffect(() => {
     if (token) fetchCurrentMonthExpenses();
-  }, [token ]);
+  }, [token && transactions ]);
 
 
   //  Add transaction
